@@ -1,4 +1,4 @@
-# ShoftShop Flutter Readme2
+# ShoftShop Flutter Readme
 
 This project structure was made with retrospect to productivity and easy maintenance.
 
