@@ -6,15 +6,12 @@ import 'package:softshop_mobile/views/onboarding/onboarding_view.dart';
 import 'package:softshop_mobile/views/splash/splash_view.dart';
 import 'core/utils/exports.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.dark,
-      statusBarIconBrightness: Brightness.dark
-    )
-  );
+      statusBarIconBrightness: Brightness.dark));
   await DotEnv.load(fileName: '.env');
   setupLogger();
   await setupLocator();

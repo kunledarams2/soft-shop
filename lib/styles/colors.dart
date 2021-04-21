@@ -10,6 +10,7 @@ class BrandColors {
   static const paleGreen = Color(0xFF6FCF97);
   static const grey = Color(0xFFD3D3D3);
   static const greyD9 = Color(0xFFD9DBE9);
+  static const greyE9 = Color(0xFFF7F7FC);
   static const greyA9 = Color(0xFFA9A9A9);
   static const grey50 = Color(0xFF505565);
   static const textLight8B = Color(0xFF8B90A0);
