@@ -7,7 +7,7 @@ ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   backgroundColor: const Color(0xFF212121),
   accentColor: Colors.white,
-  fontFamily: 'Roboto',
+  fontFamily: 'Cera Pro',
   iconTheme: IconThemeData(
     color: Colors.white
   ),
@@ -16,11 +16,11 @@ ThemeData darkTheme = ThemeData(
 );
 
 ThemeData lightTheme = ThemeData(
-  primarySwatch: createMaterialColor(BrandColors.primary_dark),
-  primaryColor: BrandColors.primary_dark,
+  primarySwatch: createMaterialColor(BrandColors.primary),
+  primaryColor: BrandColors.primary,
   brightness: Brightness.light,
   backgroundColor: BrandColors.light,
-  scaffoldBackgroundColor: BrandColors.light,
+  scaffoldBackgroundColor: Colors.white,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   appBarTheme: AppBarTheme(
     elevation: 0,
@@ -37,7 +37,7 @@ ThemeData lightTheme = ThemeData(
   iconTheme: IconThemeData(
     color: Colors.black
   ),
-  fontFamily: 'Roboto',
+  fontFamily: 'Cera Pro',
   dividerColor: Colors.black12,
   cardColor: Colors.white54
   // accentColor: Colors.black,
