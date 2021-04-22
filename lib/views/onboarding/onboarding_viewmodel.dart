@@ -16,7 +16,7 @@ class OnboardingViewModel extends BaseViewModel {
     pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.bounceInOut);
   }
 
-  void navigateToLogin() {
-    _navigationService.navigateTo(Routes.login);
+  void navigateToAuth() {
+    _navigationService.navigateTo(Routes.auth);
   }
 }

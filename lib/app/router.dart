@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:softshop_mobile/views/auth/login/login_view.dart';
+import 'package:softshop_mobile/views/auth/auth_view.dart';
+import 'package:softshop_mobile/views/auth/login_view.dart';
 import 'package:softshop_mobile/views/onboarding/onboarding_view.dart';
 
 abstract class Routes {
   static const main = '/main';
+  static const auth = '/auth';
   static const onboarding = '/onboarding';
   static const login = '/login';
 }
@@ -14,10 +16,19 @@ class Routers {
     switch (settings.name) {
       case Routes.main:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => Container(), settings: settings);
+          builder: (context) => Container(),
+          settings: settings
+        );
+      case Routes.auth:
+        return CupertinoPageRoute<dynamic>(
+          builder: (context) => AuthView(),
+          settings: settings
+        );
       case Routes.onboarding:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => OnboardingView(), settings: settings);
+          builder: (context) => OnboardingView(),
+          settings: settings
+        );
       case Routes.login:
         return CupertinoPageRoute<dynamic>(
             builder: (context) => LoginView(), settings: settings);

@@ -74,7 +74,7 @@ class OnboardingView extends StatelessWidget {
                       title: model.page == 2 ? 'Continue' : 'Next',
                       func: () {
                         if(model.page == 2) {
-                          model.navigateToLogin();
+                          model.navigateToAuth();
                         } else {
                           model.next();
                         }
@@ -87,7 +87,7 @@ class OnboardingView extends StatelessWidget {
                       filled: false,
                       func: (){
                         if(model.page != 2) {
-                          model.navigateToLogin();
+                          model.navigateToAuth();
                         }
                       }
                     ),
