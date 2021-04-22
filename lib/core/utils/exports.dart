@@ -13,3 +13,6 @@ export 'package:stacked/stacked.dart';
 export 'package:softshop_mobile/app/router.dart';
 export 'package:softshop_mobile/core/utils/utils.dart';
 export 'package:softshop_mobile/views/components/custom_button.dart';
+export 'package:softshop_mobile/core/enums/textfield_type.dart';
+export 'package:softshop_mobile/views/components/partial_builds.dart';
+export 'package:softshop_mobile/views/components/custom_textfield.dart';
