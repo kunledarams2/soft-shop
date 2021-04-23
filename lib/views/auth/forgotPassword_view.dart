@@ -1,7 +1,4 @@
 import 'package:softshop_mobile/core/utils/exports.dart';
-import 'package:softshop_mobile/views/auth/auth_viewmodel.dart';
-import 'package:softshop_mobile/views/auth/login_view.dart';
-import 'package:softshop_mobile/views/auth/register_view.dart';
 
 class ForgotPasswordView extends StatelessWidget {
   @override
@@ -18,7 +15,7 @@ class ForgotPasswordView extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
