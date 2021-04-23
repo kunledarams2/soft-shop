@@ -19,72 +19,77 @@ class LoginView extends StatelessWidget {
                 ),
                 child: Text(
                   'Login',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      .copyWith(
-                          fontSize: 40.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                      fontSize: 40.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               SizedBox(height: 10.h),
               AnimatedCrossFade(
-                firstChild: Column(
-                  children: [
-                    Text(
-                      'Please enter your email or phone number used to create your account',
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                        fontWeight: FontWeight.w500,
-                          fontSize: 16.sp,
-                          color: BrandColors.grey8B),
-                    ),
-                    SizedBox(height: 30.h),
-                    CustomTextField(
-                      labelText: 'Phone or Email Address',
-                      suffixIcon: 'phone'.svg,
-                    ),
-                    SizedBox(height: 40.h),
-                  ],
-                ),
-                secondChild: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Please enter your Password',
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                        fontWeight: FontWeight.w500,
-                          fontSize: 16.sp,
-                          color: BrandColors.grey8B),
-                    ),
-                    SizedBox(height: 30.h),
-                    CustomTextField(
-                      labelText: 'Password',
-                      type: TextFieldType.password,
-                      suffixIcon: 'phone'.svg,
-                    ),
-                    SizedBox(height: 20.h),
-                    Center(
-                      child: Text(
-                        'Forgot Password?',
+                  firstChild: Column(
+                    children: [
+                      Text(
+                        'Please enter your email or phone number used to create your account',
                         style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w500,
                             fontSize: 16.sp,
                             color: BrandColors.grey8B),
                       ),
-                    ),
-                    SizedBox(height: 20.h),
-                  ],
-                ), 
-                crossFadeState: model.showLoginPassword ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                duration: Duration(milliseconds: 250)
-              ),
+                      SizedBox(height: 30.h),
+                      CustomTextField(
+                        labelText: 'Phone or Email Address',
+                        suffixIcon: 'phone'.svg,
+                      ),
+                      SizedBox(height: 40.h),
+                    ],
+                  ),
+                  secondChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Please enter your Password',
+                        style: Theme.of(context).textTheme.bodyText2.copyWith(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16.sp,
+                            color: BrandColors.grey8B),
+                      ),
+                      SizedBox(height: 30.h),
+                      CustomTextField(
+                        labelText: 'Password',
+                        type: TextFieldType.password,
+                        suffixIcon: 'phone'.svg,
+                      ),
+                      SizedBox(height: 20.h),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/forgotPass');
+                        },
+                        child: Center(
+                          child: Text(
+                            'Forgot Password?',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText2
+                                .copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16.sp,
+                                    color: BrandColors.grey8B),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.h),
+                    ],
+                  ),
+                  crossFadeState: model.showLoginPassword
+                      ? CrossFadeState.showSecond
+                      : CrossFadeState.showFirst,
+                  duration: Duration(milliseconds: 250)),
               CustomButton(
-                title: model.showLoginPassword ? 'Login' : 'Continue',
-                func: () {
-                  model.setShowLoginPassword();
-                }
-              ),
+                  title: model.showLoginPassword ? 'Login' : 'Continue',
+                  func: () {
+                    model.setShowLoginPassword();
+                  }),
             ],
           ),
         ),

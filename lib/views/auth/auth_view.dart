@@ -9,8 +9,8 @@ class AuthView extends StatelessWidget {
     return ViewModelBuilder<AuthViewModel>.reactive(
       viewModelBuilder: () => AuthViewModel(),
       builder: (context, model, child) => WillPopScope(
-        onWillPop: () async{
-          if(model.showLoginPassword) {
+        onWillPop: () async {
+          if (model.showLoginPassword) {
             model.setShowLoginPassword();
             return false;
           }
@@ -26,16 +26,15 @@ class AuthView extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    flex: 1,
-                    child: PageView(
-                      controller: model.pageController,
-                      onPageChanged: model.setPage,
-                      children: [
-                        LoginView(),
-                        RegisterView()
-                      ],
-                    )
-                  ),
+                      flex: 1,
+                      child: PageView(
+                        controller: model.pageController,
+                        onPageChanged: model.setPage,
+                        children: [
+                          LoginView(),
+                          RegisterView(),
+                        ],
+                      )),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: Column(
@@ -48,16 +47,22 @@ class AuthView extends StatelessWidget {
                                 thickness: 1.h,
                               ),
                             ),
-                            SizedBox(width: 20.w,),
+                            SizedBox(
+                              width: 20.w,
+                            ),
                             Text(
                               'Or continue using',
-                              style: Theme.of(context).textTheme.headline5.copyWith(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w600,
-                                color: BrandColors.black33
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5
+                                  .copyWith(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: BrandColors.black33),
                             ),
-                            SizedBox(width: 20.w,),
+                            SizedBox(
+                              width: 20.w,
+                            ),
                             Expanded(
                               child: Divider(
                                 color: BrandColors.greyE6,
@@ -70,54 +75,56 @@ class AuthView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            otherLoginItem(
-                              image: 'google'.svg
+                            otherLoginItem(image: 'google'.svg),
+                            SizedBox(
+                              width: 60.w,
                             ),
-                            SizedBox(width: 60.w,),
-                            otherLoginItem(
-                              image: 'facebook'.svg
+                            otherLoginItem(image: 'facebook'.svg),
+                            SizedBox(
+                              width: 60.w,
                             ),
-                            SizedBox(width: 60.w,),
-                            otherLoginItem(
-                              image: 'apple'.svg
-                            )
+                            otherLoginItem(image: 'apple'.svg)
                           ],
                         ),
                         SizedBox(height: 50.h),
                         Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              if(model.showLoginPassword) {
-                                model.setShowLoginPassword();
-                              }
-                              model.page == 0 ? model.next() : model.prev();
-                            },
-                            child: RichText(
-                              text: TextSpan(
+                            child: GestureDetector(
+                          onTap: () {
+                            if (model.showLoginPassword) {
+                              model.setShowLoginPassword();
+                            }
+                            model.page == 0 ? model.next() : model.prev();
+                          },
+                          child: RichText(
+                            text: TextSpan(
                                 text: 'Dont have an account? ',
-                                style: Theme.of(context).textTheme.bodyText1.copyWith(
-                                  fontSize: 16.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(
+                                        fontSize: 16.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600),
                                 children: [
                                   TextSpan(
                                     text: model.page == 0 ? 'Sign Up' : 'Login',
-                                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                                      fontSize: 16.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .copyWith(
+                                            fontSize: 16.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w700),
                                   )
-                                ]
-                              ),
-                            ),
-                          )
-                        ),
+                                ]),
+                          ),
+                        )),
                       ],
                     ),
                   ),
-                  SizedBox(height: 80.h,),
+                  SizedBox(
+                    height: 80.h,
+                  ),
                   SvgPicture.asset(
                     'bottom'.svg,
                     height: 72.h,
@@ -141,9 +148,7 @@ class AuthView extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Center(
-        child: SvgPicture.asset(
-          image
-        ),
+        child: SvgPicture.asset(image),
       ),
     );
   }
