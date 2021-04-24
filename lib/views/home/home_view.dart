@@ -106,12 +106,15 @@ class HomeView extends StatelessWidget {
                         .headline6
                         .copyWith(fontSize: 18.sp),
                   ),
-                  Text(
-                    'See All',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        .copyWith(color: BrandColors.primary, fontSize: 16.sp),
+                  GestureDetector(
+                    child: Text(
+                      'See All',
+                      style: Theme.of(context).textTheme.headline6.copyWith(
+                          color: BrandColors.primary, fontSize: 16.sp),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/restaurants');
+                    },
                   ),
                 ],
               ),
@@ -128,12 +131,15 @@ class HomeView extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30.h),
-            Text(
-              'Marketplace',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontSize: 18.sp),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Text(
+                'Marketplace',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontSize: 18.sp),
+              ),
             ),
             SizedBox(height: 10.h),
             Column(
@@ -222,7 +228,6 @@ class StoreCard extends StatelessWidget {
         image: DecorationImage(
           image: AssetImage(image.png),
         ),
-        // color: BrandColors.primary,
         borderRadius: BorderRadius.circular(15.w),
       ),
       child: Column(
