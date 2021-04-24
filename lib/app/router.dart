@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:softshop_mobile/views/auth/auth_view.dart';
 import 'package:softshop_mobile/views/auth/login_view.dart';
 import 'package:softshop_mobile/views/auth/forgotPassword_view.dart';
+import 'package:softshop_mobile/views/home/restaurants_view.dart';
 import 'package:softshop_mobile/views/onboarding/onboarding_view.dart';
 
 abstract class Routes {
@@ -11,6 +12,7 @@ abstract class Routes {
   static const onboarding = '/onboarding';
   static const login = '/login';
   static const forgotPass = '/forgotPass';
+  static const restaurants = '/restaurants';
 }
 
 class Routers {
@@ -31,6 +33,9 @@ class Routers {
       case Routes.forgotPass:
         return CupertinoPageRoute<dynamic>(
             builder: (context) => ForgotPasswordView(), settings: settings);
+      case Routes.restaurants:
+        return CupertinoPageRoute<dynamic>(
+            builder: (context) => RestaurantsView(), settings: settings);
       default:
         return unknownRoutePage(settings.name);
     }
