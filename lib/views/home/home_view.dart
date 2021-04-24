@@ -3,154 +3,141 @@ import 'package:softshop_mobile/core/utils/exports.dart';
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('home'.svg), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('search_bar'.svg), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('orders'.svg), label: 'Orders'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('profile'.svg), label: 'Profile'),
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w),
-        child: ListView(
-          children: [
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: Text(
-                        'Hi, Adeleke!',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6
-                            .copyWith(fontSize: 30.sp, color: Colors.black),
-                      ),
-                    ),
-                    Text(
-                      'What would you like to get today? 😀',
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      child: ListView(
+        children: [
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Text(
+                      'Hi, Adeleke!',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText2
-                          .copyWith(fontSize: 15.sp, color: Colors.grey),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 20.w),
-                Container(
-                  width: 60.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    color: BrandColors.primary,
-                    borderRadius: BorderRadius.circular(15.w),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset('cart'.svg),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Text(
-                          '2',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              .copyWith(color: Colors.white, fontSize: 18.sp),
-                        )
-                      ],
+                          .headline6
+                          .copyWith(fontSize: 30.sp, color: Colors.black),
                     ),
                   ),
-                )
-              ],
-            ),
-            SizedBox(height: 20.h),
-            Container(
-              width: double.infinity,
-              height: 45.h,
-              decoration: BoxDecoration(
-                color: BrandColors.greyD9,
-                borderRadius: BorderRadius.circular(15.w),
+                  Text(
+                    'What would you like to get today? 😀',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2
+                        .copyWith(fontSize: 15.sp, color: Colors.grey),
+                  ),
+                ],
               ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Search for a Restauruant'),
-                    SvgPicture.asset('search'.svg)
-                  ],
+              SizedBox(width: 20.w),
+              Container(
+                width: 60.w,
+                height: 45.h,
+                decoration: BoxDecoration(
+                  color: BrandColors.primary,
+                  borderRadius: BorderRadius.circular(15.w),
                 ),
-              ),
+                child: Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset('cart'.svg),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Text(
+                        '2',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText2
+                            .copyWith(color: Colors.white, fontSize: 18.sp),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 20.h),
+          Container(
+            width: double.infinity,
+            height: 45.h,
+            decoration: BoxDecoration(
+              color: BrandColors.greyD9,
+              borderRadius: BorderRadius.circular(15.w),
             ),
-            SizedBox(height: 30.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Popular Stores Around You',
+                  Text('Search for a Restauruant'),
+                  SvgPicture.asset('search'.svg)
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 30.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Popular Stores Around You',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6
+                      .copyWith(fontSize: 18.sp),
+                ),
+                GestureDetector(
+                  child: Text(
+                    'See All',
                     style: Theme.of(context)
                         .textTheme
                         .headline6
-                        .copyWith(fontSize: 18.sp),
+                        .copyWith(color: BrandColors.primary, fontSize: 16.sp),
                   ),
-                  GestureDetector(
-                    child: Text(
-                      'See All',
-                      style: Theme.of(context).textTheme.headline6.copyWith(
-                          color: BrandColors.primary, fontSize: 16.sp),
-                    ),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/restaurants');
-                    },
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10.h),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  StoreCard(image: 'store1'),
-                  StoreCard(image: 'store2'),
-                  StoreCard(image: 'store1'),
-                ],
-              ),
-            ),
-            SizedBox(height: 30.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Text(
-                'Marketplace',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    .copyWith(fontSize: 18.sp),
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Column(
-              children: [
-                RestaurantsCard(type: 'Restaurant', count: '8'),
-                RestaurantsCard(type: 'Store', count: '5'),
-                RestaurantsCard(type: 'Restaurant', count: '3'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/restaurants');
+                  },
+                ),
               ],
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: 10.h),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                StoreCard(image: 'store1'),
+                StoreCard(image: 'store2'),
+                StoreCard(image: 'store1'),
+              ],
+            ),
+          ),
+          SizedBox(height: 30.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Text(
+              'Marketplace',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(fontSize: 18.sp),
+            ),
+          ),
+          SizedBox(height: 10.h),
+          Column(
+            children: [
+              RestaurantsCard(type: 'Restaurant', count: '8'),
+              RestaurantsCard(type: 'Store', count: '5'),
+              RestaurantsCard(type: 'Restaurant', count: '3'),
+            ],
+          ),
+        ],
       ),
     );
   }
