@@ -1,4 +1,4 @@
-# ShoftShop Flutter Readme
+# ShoftShop Flutter Readme (MAIN BRANCH)
 
 This project structure was made with retrospect to productivity and easy maintenance.
 
