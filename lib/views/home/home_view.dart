@@ -11,6 +11,7 @@ class HomeView extends StatelessWidget {
         physics: ClampingScrollPhysics(),
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +23,7 @@ class HomeView extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline6
-                          .copyWith(fontSize: 30.sp, color: Colors.black),
+                          .copyWith(fontSize: 25.sp, color: Colors.black),
                     ),
                   ),
                   Text(
@@ -30,13 +31,12 @@ class HomeView extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyText2
-                        .copyWith(fontSize: 15.sp, color: Colors.grey),
+                        .copyWith(fontSize: 12.sp, color: Colors.grey),
                   ),
                 ],
               ),
               SizedBox(width: 20.w),
               Container(
-                width: 60.w,
                 height: 45.h,
                 decoration: BoxDecoration(
                   color: BrandColors.primary,
@@ -225,8 +225,8 @@ class StoreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 138.w,
-      height: 138.h,
+      width: 138.r,
+      height: 138.r,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(image.png),
@@ -254,7 +254,7 @@ class StoreCard extends StatelessWidget {
                       SvgPicture.asset('clock'.svg),
                       Text(
                         '45-55 min',
-                        style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
                       )
                     ],
                   ),
@@ -269,7 +269,7 @@ class StoreCard extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .headline6
-                  .copyWith(color: Colors.white),
+                  .copyWith(color: Colors.white, fontSize: 16.sp),
             ),
           ),
         ],
