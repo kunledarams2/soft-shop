@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:softshop_mobile/core/utils/exports.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,6 +7,8 @@ class HomeView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: ListView(
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
         children: [
           Row(
             children: [
@@ -130,12 +133,16 @@ class HomeView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.h),
-          Column(
-            children: [
-              RestaurantsCard(type: 'Restaurant', count: '8'),
-              RestaurantsCard(type: 'Store', count: '5'),
-              RestaurantsCard(type: 'Restaurant', count: '3'),
-            ],
+          ListView.separated(
+            physics: ClampingScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return RestaurantsCard(type: 'Restaurant', count: '8');
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return SizedBox(height: 16.h);
+            },
           ),
         ],
       ),
@@ -154,7 +161,7 @@ class RestaurantsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150.h,
+      height: 151.h,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('restaurant'.png),
@@ -162,34 +169,43 @@ class RestaurantsCard extends StatelessWidget {
         // color: BrandColors.primary,
         borderRadius: BorderRadius.circular(15.w),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
+        ///How Ironic
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 10.h, left: 150.w),
+          Positioned(
+            //padding: EdgeInsets.only(top: 10.h, left: 150.w),
+            right: 10.5.w,
+            top: 8.h,
             child: Container(
-              width: 170.w,
-              height: 30.h,
+              // width: 170.w,
+              // height: 30.h,
               decoration: BoxDecoration(
                 color: Color(0xB35F2EEA),
                 borderRadius: BorderRadius.circular(15.w),
               ),
               child: Padding(
-                padding: EdgeInsets.all(5.0),
+                padding: EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    SvgPicture.asset(image.svg),
+                    Icon(
+                      CupertinoIcons.location_solid,
+                      size: 9.r,
+                      color: Color(0xFFFBFBFB),
+                    ),
+                    SizedBox(width: 5.5.w),
                     Text(
                       '$count $type(s) around you',
-                      style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                      style: TextStyle(color: Colors.white, fontSize: 10.sp),
                     )
                   ],
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 25.h, right: 210.w),
+          Positioned(
+            //padding: EdgeInsets.only(bottom: 25.h, right: 210.w),
+            left: 20.6.w,
+            bottom: 18.h,
             child: Text(
               type,
               style: TextStyle(color: Colors.white),
