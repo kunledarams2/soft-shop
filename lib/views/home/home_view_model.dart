@@ -3,6 +3,52 @@ import './home_view.dart';
 import './search_view.dart';
 import './orders_view.dart';
 import './profile_view.dart';
+import 'home_model.dart';
+
+class HomeBaseView extends StatelessWidget {
+  Widget getCurrentScreen(int index) {
+    switch (index) {
+      case 0:
+        return HomeView();
+
+      case 1:
+        return SearchView();
+      case 2:
+        return OrdersView();
+      case 3:
+        return ProfileView();
+      default:
+        return HomeView();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<HomeModel>.reactive(
+      builder: (context, model, child) {
+        return Scaffold(
+          body: getCurrentScreen(model.currentIndex),
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: model.setIndex,
+            currentIndex: model.currentIndex,
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('home'.svg), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('search_bar'.svg), label: 'Search'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('orders'.svg), label: 'Orders'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset('profile'.svg), label: 'Profile'),
+            ],
+          ),
+        );
+      },
+      viewModelBuilder: () => HomeModel(),
+    );
+  }
+}
 
 class HomeViewModel extends StatefulWidget {
   @override
@@ -45,6 +91,5 @@ class _HomeViewModelState extends State<HomeViewModel> {
         ],
       ),
     );
-    ;
   }
 }
