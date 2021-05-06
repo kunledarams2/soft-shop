@@ -76,7 +76,7 @@ class HomeView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Search for a Restauruant'),
+                  Text('Search for a Restaurant'),
                   SvgPicture.asset('search'.svg)
                 ],
               ),
