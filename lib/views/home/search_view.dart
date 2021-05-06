@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:softshop_mobile/core/utils/exports.dart';
 
 class SearchView extends StatelessWidget {
@@ -11,17 +12,17 @@ class SearchView extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                top: 20.h,
+                top: 24.h,
               ),
               child: Text(
                 'Search',
                 style: Theme.of(context).textTheme.headline6.copyWith(
-                    fontSize: 40.sp,
+                    fontSize: 24.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w700),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 20.h),
             Container(
               width: double.infinity,
               height: 45.h,
@@ -49,15 +50,15 @@ class SearchView extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 26.h),
             Text(
-              'Top Stores',
+              'Top stores',
               style: Theme.of(context)
                   .textTheme
                   .headline6
                   .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 26.h),
             Column(
               children: [
                 SearchRestaurantCard(
@@ -113,8 +114,8 @@ class SearchRestaurantCard extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 100.w,
-          height: 100.h,
+          width: 100.r,
+          height: 100.r,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(image.png),
@@ -123,41 +124,69 @@ class SearchRestaurantCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.w),
           ),
         ),
-        Container(
-          width: 200.w,
-          height: 120.h,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 1.h),
-                Text(address, style: Theme.of(context).textTheme.bodyText2),
-                SizedBox(height: 3.h),
-                Row(
-                  children: [
-                    SvgPicture.asset('star'.svg),
-                    SizedBox(width: 5.w),
-                    Text('$rating (2,567)'),
-                    SizedBox(width: 5.w),
-                    SvgPicture.asset('fast-delivery'.svg),
-                    SizedBox(width: 5.w),
-                    Text('20-30 min'),
-                  ],
-                )
-              ],
-            ),
+        SizedBox(width: 20.w),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                name,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 1.h),
+              Text(
+                address,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2
+                    .copyWith(fontSize: 12.sp),
+              ),
+              SizedBox(height: 3.h),
+              Row(
+                children: [
+                  SvgPicture.asset('star'.svg),
+                  SizedBox(width: 5.w),
+                  Text(
+                    '$rating (2,567)',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2
+                        .copyWith(fontSize: 12.sp),
+                  ),
+                  SizedBox(width: 5.w),
+                  SvgPicture.asset('fast-delivery'.svg),
+                  SizedBox(width: 5.w),
+                  Text(
+                    '20-30 min',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2
+                        .copyWith(fontSize: 12.sp),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
-        SvgPicture.asset('search_screen_icon'.svg)
+        SizedBox(width: 17.w),
+        SizedBox(
+          height: 30.r,
+          width: 30.r,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              alignment: Alignment.center,
+              backgroundColor: BrandColors.primary,
+            ),
+            onPressed: () {},
+            child: Icon(CupertinoIcons.chevron_right,
+                color: Colors.white, size: 15.r),
+          ),
+        ),
+        // SvgPicture.asset('search_screen_icon'.svg)
       ],
     );
   }
