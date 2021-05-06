@@ -22,6 +22,10 @@ class HomeBaseView extends StatelessWidget {
     }
   }
 
+  Color isColorActive({int screenIndex, int currentIndex}) {
+    if (currentIndex == screenIndex) return BrandColors.primary;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeModel>.reactive(
@@ -34,13 +38,25 @@ class HomeBaseView extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset('home'.svg), label: 'Home'),
+                  icon: SvgPicture.asset('home'.svg,
+                      color: isColorActive(
+                          screenIndex: 0, currentIndex: model.currentIndex)),
+                  label: 'Home'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset('search_bar'.svg), label: 'Search'),
+                  icon: SvgPicture.asset('search_bar'.svg,
+                      color: isColorActive(
+                          screenIndex: 1, currentIndex: model.currentIndex)),
+                  label: 'Search'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset('orders'.svg), label: 'Orders'),
+                  icon: SvgPicture.asset('orders'.svg,
+                      color: isColorActive(
+                          screenIndex: 2, currentIndex: model.currentIndex)),
+                  label: 'Orders'),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset('profile'.svg), label: 'Profile'),
+                  icon: SvgPicture.asset('profile'.svg,
+                      color: isColorActive(
+                          screenIndex: 3, currentIndex: model.currentIndex)),
+                  label: 'Profile'),
             ],
           ),
         );
@@ -50,46 +66,46 @@ class HomeBaseView extends StatelessWidget {
   }
 }
 
-class HomeViewModel extends StatefulWidget {
-  @override
-  _HomeViewModelState createState() => _HomeViewModelState();
-}
+// class HomeViewModel extends StatefulWidget {
+//   @override
+//   _HomeViewModelState createState() => _HomeViewModelState();
+// }
 
-class _HomeViewModelState extends State<HomeViewModel> {
-  int _currentIndex = 0;
+// class _HomeViewModelState extends State<HomeViewModel> {
+//   int _currentIndex = 0;
 
-  final List<Widget> _children = [
-    HomeView(),
-    SearchView(),
-    OrdersView(),
-    ProfileView()
-  ];
+//   final List<Widget> _children = [
+//     HomeView(),
+//     SearchView(),
+//     OrdersView(),
+//     ProfileView()
+//   ];
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+//   void onTabTapped(int index) {
+//     setState(() {
+//       _currentIndex = index;
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('home'.svg), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('search_bar'.svg), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('orders'.svg), label: 'Orders'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('profile'.svg), label: 'Profile'),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: _children[_currentIndex],
+//       bottomNavigationBar: BottomNavigationBar(
+//         onTap: onTabTapped,
+//         currentIndex: _currentIndex,
+//         type: BottomNavigationBarType.fixed,
+//         items: [
+//           BottomNavigationBarItem(
+//               icon: SvgPicture.asset('home'.svg), label: 'Home'),
+//           BottomNavigationBarItem(
+//               icon: SvgPicture.asset('search_bar'.svg), label: 'Search'),
+//           BottomNavigationBarItem(
+//               icon: SvgPicture.asset('orders'.svg), label: 'Orders'),
+//           BottomNavigationBarItem(
+//               icon: SvgPicture.asset('profile'.svg), label: 'Profile'),
+//         ],
+//       ),
+//     );
+//   }
+// }
