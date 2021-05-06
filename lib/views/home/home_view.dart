@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
+                    padding: EdgeInsets.only(top: 24.h),
                     child: Text(
                       'Hi, Adeleke!',
                       style: Theme.of(context)
@@ -93,7 +93,7 @@ class HomeView extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headline6
-                      .copyWith(fontSize: 18.sp),
+                      .copyWith(fontSize: 16.sp),
                 ),
                 GestureDetector(
                   child: Text(
