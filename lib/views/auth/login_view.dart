@@ -87,7 +87,11 @@ class LoginView extends StatelessWidget {
               CustomButton(
                   title: model.showLoginPassword ? 'Login' : 'Continue',
                   func: () {
-                    model.setShowLoginPassword();
+                    if(model.showLoginPassword) {
+                      model.navigateToMain();
+                    } else {
+                      model.setShowLoginPassword();
+                    }
                   }),
             ],
           ),
