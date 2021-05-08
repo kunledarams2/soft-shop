@@ -16,3 +16,8 @@ export 'package:softshop_mobile/views/components/custom_button.dart';
 export 'package:softshop_mobile/core/enums/textfield_type.dart';
 export 'package:softshop_mobile/views/components/partial_builds.dart';
 export 'package:softshop_mobile/views/components/custom_textfield.dart';
+export 'package:flutter/gestures.dart';
+export 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+export 'package:pin_code_fields/pin_code_fields.dart';
+export 'package:softshop_mobile/views/components/animation/fade_in.dart';
+export 'package:softshop_mobile/views/components/lazy_indexed_stack.dart';

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:softshop_mobile/views/auth/auth_view.dart';
 import 'package:softshop_mobile/views/auth/login_view.dart';
 import 'package:softshop_mobile/views/auth/forgotPassword_view.dart';
+import 'package:softshop_mobile/views/auth/new_password_view.dart';
+import 'package:softshop_mobile/views/auth/otp_view.dart';
 import 'package:softshop_mobile/views/home/restaurants_view.dart';
+import 'package:softshop_mobile/views/main/main_view.dart';
 import 'package:softshop_mobile/views/onboarding/onboarding_view.dart';
 
 abstract class Routes {
@@ -13,6 +16,8 @@ abstract class Routes {
   static const login = '/login';
   static const forgotPass = '/forgotPass';
   static const restaurants = '/restaurants';
+  static const verifyOtp = '/verifyOtp';
+  static const newPassword = '/newPassword';
 }
 
 class Routers {
@@ -20,22 +25,37 @@ class Routers {
     switch (settings.name) {
       case Routes.main:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => Container(), settings: settings);
+          builder: (context) => MainView(), 
+          settings: settings
+        );
       case Routes.auth:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => AuthView(), settings: settings);
+            builder: (context) => AuthView(), 
+            settings: settings);
       case Routes.onboarding:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => OnboardingView(), settings: settings);
+            builder: (context) => OnboardingView(),
+            settings: settings);
       case Routes.login:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => LoginView(), settings: settings);
+            builder: (context) => LoginView(),
+            settings: settings);
       case Routes.forgotPass:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => ForgotPasswordView(), settings: settings);
+            builder: (context) => ForgotPasswordView(),
+            settings: settings);
       case Routes.restaurants:
         return CupertinoPageRoute<dynamic>(
-            builder: (context) => RestaurantsView(), settings: settings);
+            builder: (context) => RestaurantsView(),
+            settings: settings);
+      case Routes.verifyOtp:
+        return CupertinoPageRoute<dynamic>(
+            builder: (context) => OtpView(),
+            settings: settings);
+      case Routes.newPassword:
+        return CupertinoPageRoute<dynamic>(
+            builder: (context) => NewPasswordView(),
+            settings: settings);
       default:
         return unknownRoutePage(settings.name);
     }

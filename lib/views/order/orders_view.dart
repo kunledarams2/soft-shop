@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:softshop_mobile/core/utils/exports.dart';
 import 'package:softshop_mobile/views/components/order_card.dart';
-import 'package:softshop_mobile/views/home/orders_view_model.dart';
+import 'package:softshop_mobile/views/order/orders_view_model.dart';
 
 class OrdersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<OrdersViewModel>.reactive(
-      disposeViewModel: false,
       onModelReady: (model) => model.getPendingOrders(),
       builder: (context, model, child) {
         return Padding(
@@ -76,7 +75,7 @@ class OrdersView extends StatelessWidget {
           ),
         );
       },
-      viewModelBuilder: () => locator<OrdersViewModel>(),
+      viewModelBuilder: () => OrdersViewModel(),
     );
   }
 }

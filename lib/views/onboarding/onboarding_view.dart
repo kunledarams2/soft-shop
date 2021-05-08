@@ -91,7 +91,7 @@ class OnboardingView extends StatelessWidget {
                         }
                       }
                     ),
-                    SizedBox(height: 50.h,),
+                    SizedBox(height: 40.h,),
                   ],
                 ),
               )
@@ -109,7 +109,7 @@ class OnboardingView extends StatelessWidget {
           SizedBox(height: 20.h,),
           Image.asset(
             image,
-            height: 340.h,
+            height: 300.h,
           ),
           SizedBox(height: 10.h,),
           Container(
