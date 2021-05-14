@@ -3,6 +3,7 @@ import 'package:softshop_mobile/core/utils/exports.dart';
 class AuthViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
   PageController pageController = PageController();
+  PageController setupAccountController = PageController();
   int page = 0;
   bool showLoginPassword = false;
 
@@ -18,12 +19,12 @@ class AuthViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void next() {
-    pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.bounceInOut);
+  void next(PageController controller) {
+    controller.nextPage(duration: Duration(milliseconds: 250), curve: Curves.bounceInOut);
   }
 
-  void prev() {
-    pageController.previousPage(duration: Duration(milliseconds: 250), curve: Curves.bounceInOut);
+  void prev(PageController controller) {
+    controller.previousPage(duration: Duration(milliseconds: 250), curve: Curves.bounceInOut);
   }
 
   void navigateToMain() {
@@ -40,5 +41,13 @@ class AuthViewModel extends BaseViewModel {
 
   void navigateToNewPassword() {
     _navigationService.navigateTo(Routes.newPassword);
+  }
+
+  void navigateToSetupAccount() {
+    _navigationService.navigateTo(Routes.setupAccount);
+  }
+
+  void navigateToAccountReady() {
+    _navigationService.navigateTo(Routes.accountReady);
   }
 }

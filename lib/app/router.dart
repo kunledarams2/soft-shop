@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:softshop_mobile/views/auth/account_ready.dart';
 import 'package:softshop_mobile/views/auth/auth_view.dart';
 import 'package:softshop_mobile/views/auth/login_view.dart';
 import 'package:softshop_mobile/views/auth/forgotPassword_view.dart';
 import 'package:softshop_mobile/views/auth/new_password_view.dart';
 import 'package:softshop_mobile/views/auth/otp_view.dart';
+import 'package:softshop_mobile/views/auth/setup_account_holder.dart';
 import 'package:softshop_mobile/views/home/restaurants_view.dart';
 import 'package:softshop_mobile/views/main/main_view.dart';
 import 'package:softshop_mobile/views/onboarding/onboarding_view.dart';
@@ -18,6 +20,8 @@ abstract class Routes {
   static const restaurants = '/restaurants';
   static const verifyOtp = '/verifyOtp';
   static const newPassword = '/newPassword';
+  static const setupAccount = '/setupAccount';
+  static const accountReady = '/accountReady';
 }
 
 class Routers {
@@ -55,6 +59,14 @@ class Routers {
       case Routes.newPassword:
         return CupertinoPageRoute<dynamic>(
             builder: (context) => NewPasswordView(),
+            settings: settings);
+      case Routes.setupAccount:
+        return CupertinoPageRoute<dynamic>(
+            builder: (context) => SetupAccountHolder(),
+            settings: settings);
+      case Routes.accountReady:
+        return CupertinoPageRoute<dynamic>(
+            builder: (context) => AccountReady(),
             settings: settings);
       default:
         return unknownRoutePage(settings.name);

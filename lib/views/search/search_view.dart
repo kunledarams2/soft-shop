@@ -6,96 +6,87 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),
-      child: ListView(children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: 24.h,
-              ),
-              child: Text(
-                'Search',
-                style: Theme.of(context).textTheme.headline6.copyWith(
-                    fontSize: 24.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700),
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 35.h),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 30.h,
             ),
-            SizedBox(height: 20.h),
-            Container(
-              width: double.infinity,
-              height: 45.h,
-              decoration: BoxDecoration(
-                color: BrandColors.greyE9,
-                borderRadius: BorderRadius.circular(10.w),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('search'.svg),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.w),
-                        child: Text(
-                          'Search on Softshop',
-                          style: Theme.of(context).textTheme.bodyText2.copyWith(
-                              color: Color(0xff868686), fontSize: 16.sp),
-                        ),
-                      )
-                    ],
+            child: Text(
+              'Search',
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                  fontSize: 26.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+          SizedBox(height: 20.h),
+          CustomTextField(
+            hintText: 'Search on softshop',
+            rounded: true,
+          ),
+          SizedBox(height: 10.h),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 20.h),
+                  Text(
+                    'Top stores',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
                   ),
-                ),
+                  SizedBox(height: 26.h),
+                  Column(
+                    children: [
+                      SearchRestaurantCard(
+                        name: 'ButterMilk Restaurant',
+                        address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
+                        image: 'search_store1',
+                        rating: '5.5',
+                      ),
+                      SizedBox(height: 20.h),
+                      SearchRestaurantCard(
+                        name: 'ButterMilk Restaurant',
+                        address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
+                        image: 'search_store2',
+                        rating: '3.1',
+                      ),
+                      SizedBox(height: 20.h),
+                      SearchRestaurantCard(
+                        name: 'ButterMilk Restaurant',
+                        address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
+                        image: 'search_store3',
+                        rating: '4.5',
+                      ),
+                      SizedBox(height: 20.h),
+                      SearchRestaurantCard(
+                        name: 'ButterMilk Restaurant',
+                        address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
+                        image: 'search_store4',
+                        rating: '4.2',
+                      ),
+                      SizedBox(height: 20.h),
+                      SearchRestaurantCard(
+                        name: 'ButterMilk Restaurant',
+                        address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
+                        image: 'search_store2',
+                        rating: '4.7',
+                      ),
+                      SizedBox(height: 20.h),
+                    ],
+                  )
+                ],
               ),
             ),
-            SizedBox(height: 26.h),
-            Text(
-              'Top stores',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 26.h),
-            Column(
-              children: [
-                SearchRestaurantCard(
-                  name: 'ButterMilk Restaurant',
-                  address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
-                  image: 'search_store1',
-                  rating: '5.5',
-                ),
-                SearchRestaurantCard(
-                  name: 'ButterMilk Restaurant',
-                  address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
-                  image: 'search_store2',
-                  rating: '3.1',
-                ),
-                SearchRestaurantCard(
-                  name: 'ButterMilk Restaurant',
-                  address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
-                  image: 'search_store3',
-                  rating: '4.5',
-                ),
-                SearchRestaurantCard(
-                  name: 'ButterMilk Restaurant',
-                  address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
-                  image: 'search_store4',
-                  rating: '4.2',
-                ),
-                SearchRestaurantCard(
-                  name: 'ButterMilk Restaurant',
-                  address: '3517 W. Gray St. Utica, Pennsylvania 57867.',
-                  image: 'search_store2',
-                  rating: '4.7',
-                ),
-              ],
-            )
-          ],
-        ),
-      ]),
+          ),
+        ],
+      ),
     );
   }
 }

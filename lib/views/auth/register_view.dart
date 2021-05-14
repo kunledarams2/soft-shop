@@ -45,18 +45,18 @@ class RegisterView extends StatelessWidget {
               CustomButton(
                 title: 'Create account',
                 func: () {
-                  model.setShowLoginPassword();
+                  model.navigateToSetupAccount();
                 }
               ),
               SizedBox(height: 20.h),
               Center(
                 child: Container(
-                  width: 300.w,
+                  width: 380.w,
                   child: Text(
                     'By Signing up you agree to our Terms Conditions & Privacy Policy.',
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 13.sp,
                       color: BrandColors.grey86
                     ),
                     textAlign: TextAlign.center,
