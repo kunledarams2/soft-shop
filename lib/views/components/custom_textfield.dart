@@ -109,6 +109,8 @@ class CustomTextField extends StatelessWidget {
                   onChanged: onChanged,
                   maxLength: maxLength,
                   decoration: new InputDecoration(
+                    fillColor: Color(0xFFF1F2F6),
+                    filled: rounded,
                     labelText: labelText,
                     labelStyle: Theme.of(context)
                       .textTheme
@@ -117,7 +119,8 @@ class CustomTextField extends StatelessWidget {
                           fontSize: 16.sp, color: BrandColors.grey86),
                     hintText: hintText ?? '',
                     hintStyle: TextStyle(
-                      fontSize: 16.sp
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w300
                     ),
                     helperText: helperText,
                     helperStyle: Theme.of(context).textTheme.headline3.copyWith(
@@ -129,7 +132,7 @@ class CustomTextField extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.r)
                     ) : UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: BrandColors.grey86,
+                        color: BrandColors.grey86.withOpacity(.5),
                         width: 1.3
                       ),
                       // borderRadius: BorderRadius.circular(5.r)
@@ -148,7 +151,7 @@ class CustomTextField extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.r)
                     ) : UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: BrandColors.grey86,
+                        color: BrandColors.grey86.withOpacity(.5),
                         width: 1.3
                       ),
                     ),
@@ -163,7 +166,10 @@ class CustomTextField extends StatelessWidget {
                       ),
                     ),
                     errorText: errorText,
-                    contentPadding: rounded ? EdgeInsets.symmetric(vertical: 20.h, horizontal: 25.w) : EdgeInsets.zero,
+                    contentPadding: rounded ? EdgeInsets.symmetric(
+                      vertical: 10.h,
+                      horizontal: 15.w
+                    ) : EdgeInsets.zero,
                     prefixIconConstraints: BoxConstraints(
                       minHeight: 40.h,
                       minWidth: 60.w

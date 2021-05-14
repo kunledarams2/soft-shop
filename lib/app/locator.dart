@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:softshop_mobile/core/services/http/fake_api.dart';
 import 'package:softshop_mobile/core/services/http/http_service.dart';
 import 'package:softshop_mobile/core/services/http/http_service_impl.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -14,5 +13,4 @@ Future<void> setupLocator({bool test = false}) async {
     () => SnackbarService(),
   );
   locator.registerLazySingleton<HttpService>(() => HttpServiceImpl());
-  locator.registerLazySingleton<FakeApi>(() => FakeApi());
 }

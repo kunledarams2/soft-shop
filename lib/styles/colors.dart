@@ -4,6 +4,7 @@ class BrandColors {
   BrandColors._();
 
   static const primary = Color(0xFF5F2EEA);
+  static const primaryDark = Color(0xFF2A00A2);
   static const light = Color(0xFFEFF2F4);
   static const green = Color(0xFF24B28A);
   static const paleGreen = Color(0xFF6FCF97);

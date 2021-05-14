@@ -7,6 +7,7 @@ class AuthView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<AuthViewModel>.reactive(
+      disposeViewModel: false,
       viewModelBuilder: () => AuthViewModel(),
       builder: (context, model, child) => AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
@@ -97,7 +98,7 @@ class AuthView extends StatelessWidget {
                               if (model.showLoginPassword) {
                                 model.setShowLoginPassword();
                               }
-                              model.page == 0 ? model.next() : model.prev();
+                              model.page == 0 ? model.next(model.pageController) : model.prev(model.pageController);
                             },
                             child: RichText(
                               text: TextSpan(

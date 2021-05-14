@@ -121,19 +121,4 @@ class OtpView extends StatelessWidget {
       ),
     );
   }
-
-  Widget otherLoginItem({String image}) {
-    return Container(
-      height: 64.h,
-      width: 64.h,
-      decoration: BoxDecoration(
-        color: BrandColors.greyE9,
-        border: Border.all(color: Color(0xffd9dbe9)),
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Center(
-        child: SvgPicture.asset(image),
-      ),
-    );
-  }
 }
