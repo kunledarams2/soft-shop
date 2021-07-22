@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:softshop_mobile/core/utils/exports.dart';
 
+import '../components/restaurants_card.dart';
+import '../components/store_card.dart';
+
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -94,7 +97,9 @@ class HomeView extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
-                                  .copyWith(color: BrandColors.primary, fontSize: 16.sp),
+                                  .copyWith(
+                                      color: BrandColors.primary,
+                                      fontSize: 16.sp),
                             ),
                             onTap: () {
                               Navigator.pushNamed(context, '/restaurants');
@@ -109,11 +114,17 @@ class HomeView extends StatelessWidget {
                       child: Row(
                         children: [
                           StoreCard(image: 'store1'),
-                          SizedBox(width: 20.w,),
+                          SizedBox(
+                            width: 20.w,
+                          ),
                           StoreCard(image: 'store2'),
-                          SizedBox(width: 20.w,),
+                          SizedBox(
+                            width: 20.w,
+                          ),
                           StoreCard(image: 'store1'),
-                          SizedBox(width: 20.w,),
+                          SizedBox(
+                            width: 20.w,
+                          ),
                         ],
                       ),
                     ),
@@ -146,134 +157,6 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class RestaurantsCard extends StatelessWidget {
-  final String type;
-  final String image;
-  final String count;
-
-  RestaurantsCard({this.type, this.image, this.count});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 151.h,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('restaurant'.png),
-        ),
-        // color: BrandColors.primary,
-        borderRadius: BorderRadius.circular(15.w),
-      ),
-      child: Stack(
-        ///How Ironic
-        children: [
-          Positioned(
-            //padding: EdgeInsets.only(top: 10.h, left: 150.w),
-            right: 10.5.w,
-            top: 8.h,
-            child: Container(
-              // width: 170.w,
-              // height: 30.h,
-              decoration: BoxDecoration(
-                color: Color(0xB35F2EEA),
-                borderRadius: BorderRadius.circular(15.w),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      CupertinoIcons.location_solid,
-                      size: 9.r,
-                      color: Color(0xFFFBFBFB),
-                    ),
-                    SizedBox(width: 5.5.w),
-                    Text(
-                      '$count $type(s) around you',
-                      style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            //padding: EdgeInsets.only(bottom: 25.h, right: 210.w),
-            left: 20.6.w,
-            bottom: 18.h,
-            child: Text(
-              type,
-              style: TextStyle(color: Colors.white),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class StoreCard extends StatelessWidget {
-  final String image;
-
-  StoreCard({@required this.image});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 138.r,
-      height: 138.r,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(image.png),
-        ),
-        borderRadius: BorderRadius.circular(15.w),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Padding(
-              padding: EdgeInsets.only(left: 35.w),
-              child: Container(
-                width: 85.w,
-                height: 30.h,
-                decoration: BoxDecoration(
-                  color: Color(0xB35F2EEA),
-                  borderRadius: BorderRadius.circular(15.w),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(5.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset('clock'.svg),
-                      Text(
-                        '45-55 min',
-                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              "Ginnie's Kitchen",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(color: Colors.white, fontSize: 16.sp),
-            ),
-          ),
-        ],
       ),
     );
   }
