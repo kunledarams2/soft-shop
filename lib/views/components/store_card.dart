@@ -23,7 +23,11 @@ class StoreCard extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Padding(
-              padding: EdgeInsets.only(left: 35.w, top: 5.h),
+              // padding: EdgeInsets.only(left: 35.w, top: 5.h),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * (8 / 100),
+                top: MediaQuery.of(context).size.height * (0.5 / 100),
+              ),
               child: Container(
                 width: 75.w,
                 height: 30.h,

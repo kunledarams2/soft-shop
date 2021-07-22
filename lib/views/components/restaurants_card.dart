@@ -25,8 +25,10 @@ class RestaurantsCard extends StatelessWidget {
         children: [
           Positioned(
             //padding: EdgeInsets.only(top: 10.h, left: 150.w),
-            right: 25.w,
-            top: 15.h,
+            // right: 25.w,
+            right: MediaQuery.of(context).size.width * (10 / 100),
+            // top: 15.h,
+            top: MediaQuery.of(context).size.height * (2 / 100),
             child: Container(
               // width: 170.w,
               // height: 30.h,
@@ -55,7 +57,8 @@ class RestaurantsCard extends StatelessWidget {
           ),
           Positioned(
             //padding: EdgeInsets.only(bottom: 25.h, right: 210.w),
-            left: 20.6.w,
+            // left: 20.6.w,
+            left: MediaQuery.of(context).size.width * (12 / 100),
             bottom: 18.h,
             child: Text(
               type,
